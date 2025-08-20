@@ -52,14 +52,14 @@ const Header = () => {
         {`
         /* CSS for rainbow effect */
         .rainbow-text-header {
-            background: linear-gradient(to right, #ffffff, #ffffff);
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             transition: all 0.5s ease-in-out;
         }
 
         .rainbow-text-header:hover {
-            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background: linear-gradient(to right, #ffffff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -84,7 +84,7 @@ const Header = () => {
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <a href="/" className="text-xl md:text-4xl font-extrabold rainbow-text-header">Cineflix</a>
+            <a href="/" className="text-xl md:text-4xl font-extrabold rainbow-text-header">Cine Visio</a>
           </div>
 
           {/* Navigation Menu (Dropdowns) */}

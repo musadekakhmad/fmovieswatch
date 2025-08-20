@@ -1,3 +1,6 @@
-# Block all search engines from crawling the entire site.
+# Allow all web crawlers to access the entire site
 User-agent: *
-Disallow: /
+Allow: /
+
+# Specify the location of the sitemap file
+Sitemap: https://cinevisio.netlify.app/sitemap.xml

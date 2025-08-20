@@ -24,7 +24,7 @@ export default function PlayerClient({ mediaType, id, initialDetails, initialSim
   };
 
   const title = details.title || details.name;
-  const overview = details.overview || 'Tidak ada deskripsi tersedia.';
+  const overview = details.overview || 'No description available.';
 
   // Temukan trailer YouTube pertama
   const trailer = videos.find(video => video.site === 'YouTube' && video.type === 'Trailer');
@@ -81,7 +81,7 @@ export default function PlayerClient({ mediaType, id, initialDetails, initialSim
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center bg-gray-900">
                   <PlayCircleIcon size={64} className="mb-4 text-gray-600" />
-                  <p className="text-gray-400">Pilih salah satu tombol stream di atas untuk memulai</p>
+                  <p className="text-gray-400">Select one of the stream buttons above to start</p>
                 </div>
               )}
             </div>
@@ -106,14 +106,14 @@ export default function PlayerClient({ mediaType, id, initialDetails, initialSim
                   );
                 })}
               </p>
-              <p><strong>Rilis:</strong> {details.release_date || details.first_air_date}</p>
-              {details.runtime && <p><strong>Durasi:</strong> {details.runtime} menit</p>}
-              {details.episode_run_time && <p><strong>Durasi Episode:</strong> {details.episode_run_time[0]} menit</p>}
+              <p><strong>Release:</strong> {details.release_date || details.first_air_date}</p>
+              {details.runtime && <p><strong>Duration:</strong> {details.runtime} minutes</p>}
+              {details.episode_run_time && <p><strong>Duration Episode:</strong> {details.episode_run_time[0]} minutes</p>}
             </div>
             <div>
               <p><strong>Status:</strong> {details.status}</p>
-              <p><strong>Bahasa Asli:</strong> {details.original_language?.toUpperCase()}</p>
-              <p><strong>Skor:</strong> {details.vote_average?.toFixed(1)}/10 ({details.vote_count} votes)</p>
+              <p><strong>Native Language:</strong> {details.original_language?.toUpperCase()}</p>
+              <p><strong>Score:</strong> {details.vote_average?.toFixed(1)}/10 ({details.vote_count} votes)</p>
             </div>
           </div>
         </div>
@@ -137,24 +137,24 @@ export default function PlayerClient({ mediaType, id, initialDetails, initialSim
 
         {/* User Reviews */}
         <div className="mt-12">
-          <h2 className="text-3xl font-bold mb-6 text-white">Review Pengguna</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">User Reviews</h2>
           {reviews.length > 0 ? (
             <div className="space-y-6">
               {reviews.map((review) => (
                 <div key={review.id} className="p-6 bg-gray-800 rounded-xl shadow-lg">
-                  <p className="text-white font-semibold mb-2">Review oleh: {review.author}</p>
+                  <p className="text-white font-semibold mb-2">Review by: {review.author}</p>
                   <p className="text-gray-300 line-clamp-4 hover:line-clamp-none transition-all duration-300">{review.content}</p>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-gray-400">Belum ada review untuk media ini.</p>
+            <p className="text-gray-400">There are no reviews for this media yet.</p>
           )}
         </div>
 
-        {/* Bagian "Like To This" (Konten serupa) */}
+        {/* Bagian "Similiar Movies" (Konten serupa) */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">Like To This</h2>
+          <h2 className="text-2xl font-bold mb-6">Similiar Movies</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {similarMedia.map((media) => (
               <MovieCard key={media.id} media={media} mediaType={mediaType} />

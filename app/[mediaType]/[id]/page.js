@@ -111,7 +111,7 @@ export default async function MediaPage({ params }) {
 
       {/* Rekomendasi */}
       <section className="container mx-auto p-4 md:p-8 mt-12">
-        <h2 className="text-3xl font-bold mb-6">Rekomendasi</h2>
+        <h2 className="text-3xl font-bold mb-6">Recommendations</h2>
         {recommendations.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
             {recommendations.slice(0, 12).map((media) => (
@@ -119,7 +119,7 @@ export default async function MediaPage({ params }) {
             ))}
           </div>
         ) : (
-          <p className="text-gray-400">Tidak ada rekomendasi yang tersedia.</p>
+          <p className="text-gray-400">No recommendations available.</p>
         )}
       </section>
     </div>

@@ -86,12 +86,12 @@ const HomePage = () => {
       <div id="hero-section" className="mb-8 rounded-lg overflow-hidden shadow-lg">
           <figure>
               <img
-                  src="https://live.staticflickr.com/65535/54702086138_3eb083fcde_b.jpg"
-                  alt="Estreno Ya Movie Streaming Banner"
+                  src="https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg"
+                  alt="Cine Visio Movie Streaming Banner"
                   srcSet="
-                      https://live.staticflickr.com/65535/54702086138_3eb083fcde_b.jpg 1024w,
-                      https://live.staticflickr.com/65535/54702086138_3eb083fcde_b.jpg 500w,
-                      https://live.staticflickr.com/65535/54702086138_3eb083fcde_b.jpg 240w
+                      https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg 1024w,
+                      https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg 500w,
+                      https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg 240w
                   "
                   sizes="(max-width: 600px) 100vw, 1024px"
                   loading="lazy"
@@ -101,9 +101,9 @@ const HomePage = () => {
       </div>
 
       <div className="bg-gray-800 rounded-lg p-6 shadow-lg mb-8">
-        <h1 className="text-3xl font-bold text-white mb-4">Estreno Ya: Free HD Movie & TV Show Streaming</h1>
+        <h1 className="text-3xl font-bold text-white mb-4">Cine Visio: Free HD Movie & TV Show Streaming</h1>
         <p className="text-gray-300 text-justify">
-          Estreno Ya is your ultimate destination for high-quality, free movie and TV show streaming. Explore our extensive collection of popular movies, trending films, and the most talked-about TV series. With an easy-to-use interface and a seamless video player, we ensure an enjoyable viewing experience. Start streaming today!
+          Cine Visio is your ultimate destination for high-quality, free movie and TV show streaming. Explore our extensive collection of popular movies, trending films, and the most talked-about TV series. With an easy-to-use interface and a seamless video player, we ensure an enjoyable viewing experience. Start streaming today!
         </p>
       </div>
 

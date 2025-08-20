@@ -102,7 +102,7 @@ export default function WatchClient({ mediaType, id, initialDetails, initialSimi
                             ) : (
                                 <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full text-gray-400 bg-gray-900">
                                     <PlayCircleIcon size={64} className="mb-4 text-gray-600" />
-                                    Pilih salah satu tombol stream di atas untuk memulai
+                                    Select one of the stream buttons above to start
                                 </div>
                             )}
                         </div>

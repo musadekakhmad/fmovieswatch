@@ -70,11 +70,11 @@ export async function generateMetadata({ params }) {
     return {};
   }
 
-  const title = `${details.title || details.name} | Estrenoya`;
+  const title = `${details.title || details.name} | Cine Visio`;
   const description = details.overview || 'Tujuan utama Anda untuk streaming film dan acara TV gratis berkualitas tinggi.';
   const imageUrl = details.poster_path
     ? `https://image.tmdb.org/t/p/original${details.poster_path}`
-    : 'https://placehold.co/1200x630/000000/FFFFFF?text=Estrenoya';
+    : 'https://placehold.co/1200x630/000000/FFFFFF?text=Cine-Visio';
 
   return {
     title,
@@ -82,8 +82,8 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title,
       description,
-      url: `https://estrenoya.netlify.app/${mediaType}/${id}`,
-      siteName: 'Estrenoya',
+      url: `https://cinevisio.netlify.app/${mediaType}/${id}`,
+      siteName: 'Cine Visio',
       images: [
         {
           url: imageUrl,

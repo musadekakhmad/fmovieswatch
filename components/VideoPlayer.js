@@ -24,7 +24,7 @@ function VideoPlayer({ videoUrl }) {
         // Tambahkan fallback jika browser tidak mendukung tag video
         onError={(e) => console.error("Error loading video:", e)}
       >
-        Browser Anda tidak mendukung tag video.
+        Your browser does not support the video tag.
       </video>
     </div>
   );

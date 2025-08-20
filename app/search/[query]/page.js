@@ -59,7 +59,7 @@ export default function SearchPage({ params }) {
   if (!searchQuery) {
     return (
       <div className="text-center p-8 text-white">
-        <h1 className="text-2xl mb-4">Silakan masukkan kata kunci untuk pencarian.</h1>
+        <h1 className="text-2xl mb-4">Please enter keywords for search.</h1>
       </div>
     );
   }
@@ -67,7 +67,7 @@ export default function SearchPage({ params }) {
   if (loading) {
     return (
       <div className="text-center p-8 text-white">
-        <h1 className="text-2xl mb-4">Mencari hasil untuk "{searchQuery}"...</h1>
+        <h1 className="text-2xl mb-4">Search results for "{searchQuery}"...</h1>
         <p>Loading...</p>
       </div>
     );
@@ -76,8 +76,8 @@ export default function SearchPage({ params }) {
   if (error) {
     return (
       <div className="text-center p-8 text-red-500">
-        <h1 className="text-2xl mb-4">Terjadi kesalahan.</h1>
-        <p>Gagal memuat hasil pencarian.</p>
+        <h1 className="text-2xl mb-4">There is an error.</h1>
+        <p>Failed to load search results.</p>
       </div>
     );
   }
@@ -85,15 +85,15 @@ export default function SearchPage({ params }) {
   if (data && data.results.length === 0) {
     return (
       <div className="text-center p-8 text-gray-400">
-        <h1 className="text-2xl mb-4">Tidak ada hasil yang ditemukan untuk "{searchQuery}".</h1>
-        <p>Coba kata kunci lain atau periksa ejaan Anda.</p>
+        <h1 className="text-2xl mb-4">No results found for "{searchQuery}".</h1>
+        <p>Try another keyword or check your spelling.</p>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4 md:p-8 font-sans">
-      <h1 className="text-3xl font-bold mb-6">Hasil Pencarian untuk "{searchQuery}"</h1>
+      <h1 className="text-3xl font-bold mb-6">Search Results for "{searchQuery}"</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
         {data.results
           .filter(item => item.media_type === 'movie' || item.media_type === 'tv')

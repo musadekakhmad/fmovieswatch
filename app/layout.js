@@ -12,20 +12,20 @@ import AdsterraLayoutWrapper from '../components/AdsterraLayoutWrapper'; // Impo
 // Menghapus import 'video.js/dist/video-js.css'; dari sini
 
 export const metadata = {
-  title: 'Cineflix | Free HD Movie & TV Show Streaming',
+  title: 'Cine Visio | Free HD Movie & TV Show Streaming',
   description: 'Your ultimate destination for high-quality, free movie and TV show streaming..',
   // Meta tag Open Graph untuk Facebook
   openGraph: {
-    title: 'Cineflix | Free HD Movie & TV Show Streaming',
+    title: 'Cine Visio | Free HD Movie & TV Show Streaming',
     description: 'Your ultimate destination for high-quality, free movie and TV show streaming..',
-    url: 'https://estrenoya.netlify.app/',
-    siteName: 'Cineflix',
+    url: 'https://cinevisio.netlify.app/',
+    siteName: 'Cine Visio',
     images: [
       {
-        url: 'https://live.staticflickr.com/65535/54707174696_49edde76e3_b.jpg',
+        url: 'https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cineflix',
+        alt: 'Cine Visio',
       },
     ],
     locale: 'en_US',
@@ -38,9 +38,9 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@WatchStream123', // User Twitter Anda
     creator: '@WatchStream123',
-    title: 'Cineflix | Free HD Movie & TV Show Streaming',
+    title: 'Cine Visio | Free HD Movie & TV Show Streaming',
     description: 'Your ultimate destination for high-quality, free movie and TV show streaming..',
-    images: ['https://live.staticflickr.com/65535/54707174696_49edde76e3_b.jpg'], // Ganti dengan URL gambar yang sesuai
+    images: ['https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg'], // Ganti dengan URL gambar yang sesuai
   },
 };
 
