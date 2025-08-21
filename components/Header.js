@@ -91,7 +91,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6 relative">
             <div className="relative" onMouseEnter={handleMoviesEnter} onMouseLeave={handleMoviesLeave}>
               <button className="text-white px-2 py-0.5 rounded-full hover:bg-blue-600 hover:text-white transition-colors duration-300 flex items-center" aria-haspopup="true" aria-expanded={isMoviesDropdownOpen}>
-                Movies
+                Film
                 <svg className="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
@@ -109,7 +109,7 @@ const Header = () => {
 
             <div className="relative" onMouseEnter={handleTvShowsEnter} onMouseLeave={handleTvShowsLeave}>
               <button className="text-white px-2 py-0.5 rounded-full hover:bg-red-600 hover:text-white transition-colors duration-300 flex items-center" aria-haspopup="true" aria-expanded={isTvShowsDropdownOpen}>
-                TV Shows
+                TV Serial
                 <svg className="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
