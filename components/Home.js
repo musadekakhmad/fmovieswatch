@@ -100,12 +100,12 @@ export default function Home() {
       {/* Added rounded-xl and shadow-2xl for better styling */}
       <div className="relative w-full h-48 md:h-64 lg:h-96 overflow-hidden rounded-xl shadow-2xl" suppressHydrationWarning={true}>
           <img
-              src="https://live.staticflickr.com/65535/54732469204_6663bf32b7_b.jpg"
-              alt="Cine Visio Banner"
+              src="https://live.staticflickr.com/65535/54734663743_992c7169cc_b.jpg"
+              alt="Libra Sinema Banner"
               className="w-full h-full object-cover object-center"
               onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/1920x1080/0d1117/2d3138?text=Cine+Visio';
+                  e.target.src = 'https://placehold.co/1920x1080/0d1117/2d3138?text=Libra-Sinema';
               }}
           />
       </div>
@@ -114,9 +114,9 @@ export default function Home() {
       <div className="px-4 md:px-8">
         {/* About Section */}
         <section className="bg-gray-800 rounded-2xl p-8 shadow-2xl mb-12 transform hover:scale-105 transition-transform duration-300">
-          <h1 className="text-3xl font-bold text-white mb-4">Cine Visio: Free HD Movie & TV Show Streaming</h1>
+          <h1 className="text-3xl font-bold text-white mb-4">Libra Sinema: Nonton Film Gratis dan Streaming Tv Serial</h1>
           <p className="text-gray-300 text-justify leading-relaxed">
-            Cine Visio is your one-stop destination for high-quality, free streaming of movies and TV shows. Explore our collection of popular movies, trending films, and the most talked-about TV series. With an easy-to-use interface and smooth video player, we ensure a pleasant viewing experience. Start streaming today!
+            Libra Sinema adalah destinasi lengkap Anda untuk streaming film dan acara TV berkualitas tinggi dan gratis. Jelajahi koleksi film populer, film yang sedang tren, dan serial TV terpopuler kami. Dengan antarmuka yang mudah digunakan dan pemutar video yang lancar, kami menjamin pengalaman menonton yang menyenangkan. Mulai streaming hari ini!
           </p>
         </section>
 
@@ -162,8 +162,7 @@ export default function Home() {
                 <div className="text-center mt-8">
                   <button
                     onClick={loadMoreSeries}
-                    className="bg-red-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-red-700 transition duration-300"
-                  >
+                    className="bg-red-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-red-700 transition duration-300">
                     Load More
                   </button>
                 </div>
@@ -171,7 +170,6 @@ export default function Home() {
             </>
           )}
         </section>
-
       </div>
     </div>
   );
