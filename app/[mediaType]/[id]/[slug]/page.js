@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
     return {};
   }
 
-  const title = `${details.title || details.name} | Cine Visio`;
+  const title = `${details.title || details.name} | Libra Sinema`;
   const description = details.overview || 'Your ultimate destination for high-quality free movie and TV show streaming.';
   const imageUrl = details.poster_path
     ? `https://image.tmdb.org/t/p/original${details.poster_path}`
@@ -43,8 +43,8 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: title,
       description: description,
-      url: `https://cinevisio.netlify.app/${mediaType}/${id}/${slug}`,
-      siteName: 'Cine Visio',
+      url: `https://LibraSinema.netlify.app/${mediaType}/${id}/${slug}`,
+      siteName: 'Libra Sinema',
       images: [
         {
           url: imageUrl,
