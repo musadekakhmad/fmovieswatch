@@ -13,12 +13,12 @@ import AdsterraLayoutWrapper from '../components/AdsterraLayoutWrapper';
 
 export const metadata = {
   // Changing title and description to English
-  title: 'FMovies Watch | Watch Free Movies and TV Series Streaming',
-  description: 'Your ultimate destination for high-quality free movie and TV show streaming.',
+  title: 'FMovies Watch | Free Movies and TV Series Streaming',
+  description: 'Your ultimate destination for high-quality free movies and TV shows streaming.',
   // Open Graph meta tags for Facebook
   openGraph: {
-    title: 'FMovies Watch | Watch Free Movies and TV Series Streaming',
-    description: 'Your ultimate destination for high-quality free movie and TV show streaming.',
+    title: 'FMovies Watch | Free Movies and TV Series Streaming',
+    description: 'Your ultimate destination for high-quality free movies and TV shows streaming.',
     url: 'https://fmovieswatch.netlify.app/',
     siteName: 'FMovies Watch',
     images: [
@@ -41,8 +41,8 @@ export const metadata = {
     site: '@WatchStream123', // Your Twitter user
     creator: '@WatchStream123',
     // Changing title and description to English
-    title: 'FMovies Watch | Watch Free Movies and TV Series Streaming',
-    description: 'Your ultimate destination for high-quality free movie and TV show streaming.',
+    title: 'FMovies Watch | Free Movies and TV Series Streaming',
+    description: 'Your ultimate destination for high-quality free movies and TV sho streaming.',
     images: ['https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg'], // Replace with the appropriate image URL
   },
 }; 
