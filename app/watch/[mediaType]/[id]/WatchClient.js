@@ -5,11 +5,45 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { PlayCircleIcon } from 'lucide-react'; // Menggunakan Lucide React untuk ikon
-import MovieCard from '@/components/MovieCard'; // Mengimpor komponen MovieCard yang sudah diperbaiki
 
 // Konfigurasi API
 const POSTER_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 const BACKDROP_IMAGE_URL = 'https://image.tmdb.org/t/p/original';
+
+// ===================================
+// KOMPONEN MovieCard
+// ===================================
+function MovieCard({ media }) {
+    if (!media) {
+      return null;
+    }
+    
+    // Menggunakan media_type dari objek media jika ada, jika tidak, gunakan 'movie' sebagai default
+    const mediaType = media.media_type || 'movie';
+    const mediaTitle = media.title || media.name;
+    const mediaSlug = mediaTitle.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+    
+    const posterPath = media.poster_path && media.poster_path !== ""
+      ? `${POSTER_IMAGE_URL}${media.poster_path}`
+      : 'https://placehold.co/500x750?text=No+Image';
+    
+    const targetUrl = `/${mediaType}/${media.id}/${mediaSlug}`;
+    
+    return (
+        <div className="relative group rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 transform hover:scale-105 hover:shadow-yellow-500/50">
+            <Link href={targetUrl}>
+                <img
+                    src={posterPath}
+                    alt={mediaTitle}
+                    className="w-full h-auto object-cover transition-opacity duration-300 group-hover:opacity-80"
+                />
+            </Link>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-sm md:text-base font-semibold truncate">{mediaTitle}</h3>
+            </div>
+        </div>
+    );
+}
 
 // ===================================
 // KOMPONEN UTAMA HALAMAN STREAMING
@@ -17,7 +51,7 @@ const BACKDROP_IMAGE_URL = 'https://image.tmdb.org/t/p/original';
 export default function WatchClient({ mediaType, id, initialDetails, initialSimilarMedia }) {
     const [details] = useState(initialDetails);
     const [streamUrl, setStreamUrl] = useState(null);
-    const title = details?.title || details?.name; // Menggunakan optional chaining untuk mencegah error jika 'details' undefined
+    const title = details.title || details.name;
 
     // Handler untuk memilih stream
     const handleStreamSelect = () => {
@@ -30,7 +64,7 @@ export default function WatchClient({ mediaType, id, initialDetails, initialSimi
         <main
             className="relative bg-gray-900 text-white min-h-screen p-4 md:p-8 lg:p-12"
             style={{
-                backgroundImage: `linear-gradient(to top, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0.5)), url(${BACKDROP_IMAGE_URL}${details?.backdrop_path})`, // Menggunakan optional chaining
+                backgroundImage: `linear-gradient(to top, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0.5)), url(${BACKDROP_IMAGE_URL}${details.backdrop_path})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
