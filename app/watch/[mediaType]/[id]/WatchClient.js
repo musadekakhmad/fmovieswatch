@@ -11,14 +11,14 @@ const POSTER_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 const BACKDROP_IMAGE_URL = 'https://image.tmdb.org/t/p/original';
 
 // ===================================
-// MovieCard Component
+// MovieCard COMPONENT
 // ===================================
 function MovieCard({ media }) {
     if (!media) {
       return null;
     }
     
-    // Using media_type from the media object if available, otherwise default to 'movie'
+    // Use media_type from the media object if available, otherwise default to 'movie'
     const mediaType = media.media_type || 'movie';
     const mediaTitle = media.title || media.name;
     const mediaSlug = mediaTitle.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
@@ -30,109 +30,68 @@ function MovieCard({ media }) {
     const targetUrl = `/${mediaType}/${media.id}/${mediaSlug}`;
     
     return (
-        <div className="relative group rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <div className="relative group rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 transform hover:scale-105 hover:shadow-yellow-500/50">
             <Link href={targetUrl}>
                 <img
                     src={posterPath}
                     alt={mediaTitle}
-                    className="w-full h-auto object-cover rounded-xl"
+                    className="w-full h-auto object-cover transition-opacity duration-300 group-hover:opacity-80"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-white text-center font-bold text-lg p-2">
-                        {mediaTitle}
-                    </span>
-                </div>
             </Link>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-sm md:text-base font-semibold truncate">{mediaTitle}</h3>
+            </div>
         </div>
     );
 }
 
 // ===================================
-// WatchClient Component
+// MAIN STREAMING PAGE COMPONENT
 // ===================================
-export default function WatchClient({ initialMedia, initialSimilarMedia }) {
+export default function WatchClient({ mediaType, id, initialDetails, initialSimilarMedia }) {
+    const [details] = useState(initialDetails);
     const [streamUrl, setStreamUrl] = useState(null);
-    const mediaType = initialMedia.media_type || 'movie';
-    const title = initialMedia.title || initialMedia.name;
-    const releaseDate = initialMedia.release_date || initialMedia.first_air_date;
+    const title = details.title || details.name;
 
-    const streamSources = [
-        {
-            name: "Vidcloud",
-            url: `https://vidsrc.me/embed/${mediaType}?tmdb=${initialMedia.id}`
-        },
-        {
-            name: "2Embed",
-            url: `https://www.2embed.cc/embed/${mediaType}?tmdb=${initialMedia.id}`
-        },
-        {
-            name: "2Embed (Backup)",
-            url: `https://www.2embed.ru/embed/${mediaType}?tmdb=${initialMedia.id}`
-        },
-    ];
-
-    const handleSelectStream = (url) => {
-        setStreamUrl(url);
+    // Handler for selecting a stream
+    const handleStreamSelect = () => {
+        // The vidsrc.to stream URL to be used
+        const baseUrl = "https://vidsrc.to/embed/";
+        setStreamUrl(`${baseUrl}${mediaType}/${id}`);
     };
 
     return (
-        <main className="min-h-screen bg-gray-900 text-white font-sans p-4 md:p-8">
-            <div className="container mx-auto">
-                <div className="relative w-full h-auto md:h-[600px] rounded-xl overflow-hidden shadow-2xl">
-                    <img
-                        src={`${BACKDROP_IMAGE_URL}${initialMedia.backdrop_path}`}
-                        alt={title}
-                        className="w-full h-full object-cover rounded-xl"
-                        onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src = 'https://placehold.co/1280x720/0d1117/2d3138?text=No+Image';
-                        }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 p-4 text-white z-10 md:bottom-8 md:left-8">
-                        <h1 className="text-3xl md:text-5xl font-extrabold mb-2 leading-tight drop-shadow-lg">
-                            {title}
-                        </h1>
-                        <p className="text-lg md:text-xl font-light text-gray-300 drop-shadow-md">
-                            {initialMedia.tagline}
-                        </p>
-                        <p className="mt-2 text-sm md:text-md text-gray-400">
-                            Release Date: {releaseDate}
-                        </p>
-                    </div>
-                </div>
+        <main
+            className="relative bg-gray-900 text-white min-h-screen p-4 md:p-8 lg:p-12"
+            style={{
+                backgroundImage: `linear-gradient(to top, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0.5)), url(${BACKDROP_IMAGE_URL}${details.backdrop_path})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        >
+            <div className="container mx-auto z-10 relative">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg text-yellow-400 text-center">{title}</h1>
 
-                {/* =================================== */}
-                {/* Main Content */}
-                {/* =================================== */}
-                <div className="mt-8 flex flex-col lg:flex-row gap-8">
-                    {/* Synopsis & Details */}
-                    <div className="lg:w-2/3">
-                        <h2 className="text-2xl font-bold mb-4">Synopsis</h2>
-                        <p className="text-gray-300 leading-relaxed text-justify">
-                            {initialMedia.overview}
-                        </p>
-                    </div>
-
-                    {/* Streaming Player Section */}
-                    <div className="lg:w-1/3 mt-8 lg:mt-0">
-                        <h2 className="text-2xl font-bold mb-4">Watch Now</h2>
-                        <div className="mb-4">
-                            <span className="font-semibold text-gray-400">Select Stream:</span>
-                            <div className="flex flex-wrap gap-2 mt-2">
-                                {streamSources.map((source) => (
-                                    <button
-                                        key={source.name}
-                                        onClick={() => handleSelectStream(source.url)}
-                                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                                    >
-                                        {source.name}
-                                    </button>
-                                ))}
-                            </div>
+                {/* Main Section: Video Player */}
+                <div className="w-full">
+                    <div className="bg-gray-800 rounded-lg shadow-2xl p-4 mb-6">
+                        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mb-4">
+                            <button
+                                onClick={() => handleStreamSelect()}
+                                className="w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition duration-200 shadow-md transform hover:scale-105"
+                            >
+                                Stream 1
+                            </button>
+                            <button
+                                onClick={() => handleStreamSelect()}
+                                className="w-full py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-200 shadow-md transform hover:scale-105"
+                            >
+                                Stream 2
+                            </button>
                         </div>
 
-                        <div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-xl border-2 border-gray-700">
+                        {/* Video Player Area */}
+                        <div className="relative pt-[56.25%] w-full rounded-lg overflow-hidden shadow-xl">
                             {streamUrl ? (
                                 <iframe
                                     src={streamUrl}
@@ -150,11 +109,9 @@ export default function WatchClient({ initialMedia, initialSimilarMedia }) {
                     </div>
                 </div>
 
-                {/* =================================== */}
-                {/* "You might like also" Section */}
-                {/* =================================== */}
+                {/* "You might also like" Section */}
                 <div className="mt-12">
-                    <h2 className="text-2xl font-bold mb-6">You might like also</h2>
+                    <h2 className="text-2xl font-bold mb-6">You might also like</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                         {initialSimilarMedia.map((media) => (
                             <MovieCard key={media.id} media={media} />
