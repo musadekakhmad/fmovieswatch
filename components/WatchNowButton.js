@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { PlayCircle } from 'lucide-react';
 
 /*
-  Komponen WatchNowButton.
-  Komponen ini sekarang mengarahkan pengguna ke halaman pemutar video yang baru
-  menggunakan rute `/watch/[mediaType]/[id]`.
+  WatchNowButton Component.
+  This component now directs the user to the new video player page
+  using the `/watch/[mediaType]/[id]` route.
 */
 export default function WatchNowButton({ mediaType, mediaId }) {
   const watchUrl = `/watch/${mediaType}/${mediaId}`;
