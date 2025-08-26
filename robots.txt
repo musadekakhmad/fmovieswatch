@@ -1,6 +1,4 @@
-# Allow all web crawlers to access the entire site
 User-agent: *
 Allow: /
 
-# Specify the location of the sitemap file
-Sitemap: https://cinevisio.netlify.app/sitemap.xml
+Sitemap: https://www.google.com/search?q=https://fmovieswatch.netlify.app/sitemap.xml
