@@ -3,17 +3,17 @@
 import React from 'react';
 
 /**
- * Komponen React untuk memutar video menggunakan elemen <video> HTML5 native.
- * Ini adalah alternatif yang lebih ringan dan andal dari video.js.
- * @param {string} videoUrl - URL video yang akan diputar.
+ * A React component for playing videos using the native HTML5 <video> element.
+ * This is a lighter and more reliable alternative to video.js.
+ * @param {string} videoUrl - The URL of the video to be played.
  */
 function VideoPlayer({ videoUrl }) {
   return (
     <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
       {/*
-        Elemen video HTML5 native. Atribut 'controls' menyediakan kontrol pemutaran
-        bawaan browser. 'autoPlay' memastikan video dimulai secara otomatis.
-        'w-full' dan 'h-full' memastikan video mengisi container-nya.
+        Native HTML5 video element. The 'controls' attribute provides the browser's
+        built-in playback controls. 'autoPlay' ensures the video starts automatically.
+        'w-full' and 'h-full' ensure the video fills its container.
       */}
       <video
         className="w-full h-full object-cover"
@@ -21,7 +21,7 @@ function VideoPlayer({ videoUrl }) {
         controls
         autoPlay
         preload="auto"
-        // Tambahkan fallback jika browser tidak mendukung tag video
+        // Add a fallback if the browser does not support the video tag
         onError={(e) => console.error("Error loading video:", e)}
       >
         Your browser does not support the video tag.
