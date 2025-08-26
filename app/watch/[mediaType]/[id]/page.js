@@ -1,39 +1,68 @@
 // app/watch/[mediaType]/[id]/page.js
-// MAKE SURE THERE IS NO 'use client' line here.
+// PASTIKAN TIDAK ADA baris 'use client' di sini.
 import { notFound } from 'next/navigation';
 import WatchClient from './WatchClient';
 
-// API Configuration
-const API_KEY = ''; // <-- FILL IN YOUR API KEY HERE
+// Konfigurasi API
+const API_KEY = ''; // <-- ISI DENGAN API KEY ANDA
 const BASE_URL = 'https://tmdb-api-proxy.argoyuwono119.workers.dev';
 
 // ====================================================================================
-// FUNCTION TO GET DATA (server-side)
+// FUNGSI UNTUK MENDAPATKAN DATA (di sisi server)
 // ====================================================================================
 async function getMediaDetails(mediaType, id) {
   const res = await fetch(`${BASE_URL}/${mediaType}/${id}?api_key=${API_KEY}`);
   if (!res.ok) {
-    // If it fails, navigate to the 404 page
+    // Jika gagal, navigasi ke halaman 404
     notFound();
   }
   return res.json();
 }
 
-// New function to get a static list from TMDB
+// Fungsi baru untuk mendapatkan daftar statis dari TMDB
 async function getStaticListMedia(listId) {
   const res = await fetch(`${BASE_URL}/list/${listId}?api_key=${API_KEY}`);
   if (!res.ok) {
-    // If it fails, return an empty array
+    // Jika gagal, kembalikan array kosong
     return { items: [] };
   }
   return res.json();
 }
 
 // ====================================================================================
-// FUNCTION TO GET DYNAMIC METADATA (Important for SEO)
+// KOMPONEN UTAMA HALAMAN PLAYER (SERVER COMPONENT)
+// ====================================================================================
+export default async function Page({ params }) {
+  // PERBAIKAN: Gunakan 'await params' untuk mengatasi error Next.js
+  const { mediaType, id } = await params;
+
+  try {
+    const [detailsData, staticListData] = await Promise.all([
+      getMediaDetails(mediaType, id),
+      // Menggunakan daftar statis TMDB dengan ID 143347
+      getStaticListMedia(143347),
+    ]);
+
+    // Meneruskan semua data yang diperlukan ke komponen klien
+    return (
+      <WatchClient
+        mediaType={mediaType}
+        id={id}
+        initialDetails={detailsData}
+        initialSimilarMedia={staticListData.items}
+      />
+    );
+  } catch (error) {
+    console.error("Gagal mengambil data di sisi server:", error);
+    notFound();
+  }
+}
+
+// ====================================================================================
+// FUNGSI UNTUK MENDAPATKAN METADATA DINAMIS (Penting untuk SEO)
 // ====================================================================================
 export async function generateMetadata({ params }) {
-  // FIX: Use 'await params' to fix Next.js error
+  // PERBAIKAN: Gunakan 'await params' untuk mengatasi error Next.js
   const { mediaType, id } = await params;
 
   const res = await fetch(`${BASE_URL}/${mediaType}/${id}?api_key=${API_KEY}`);
@@ -44,7 +73,7 @@ export async function generateMetadata({ params }) {
   }
 
   const title = `${details.title || details.name} | FMovies Watch`;
-  const description = details.overview || 'Your hub for high-quality free movie and TV show streaming.';
+  const description = details.overview || 'Your free high quality streaming center for movies and TV shows.';
   const imageUrl = details.poster_path
     ? `https://image.tmdb.org/t/p/original${details.poster_path}`
     : 'https://placehold.co/1200x630/000000/FFFFFF?text=FMovies-Watch';
@@ -65,9 +94,8 @@ export async function generateMetadata({ params }) {
           alt: title,
         },
       ],
-      locale: 'en_US', // Change locale to English
+      locale: 'en_US',
       type: 'website',
-      appId: 'cut.erna.984',
     },
     twitter: {
       card: 'summary_large_image',
@@ -78,46 +106,4 @@ export async function generateMetadata({ params }) {
       images: [imageUrl],
     },
   };
-}
-
-// ====================================================================================
-// MAIN PLAYER PAGE COMPONENT (SERVER COMPONENT)
-// ====================================================================================
-export default async function WatchPage({ params }) {
-    const { mediaType, id } = params;
-
-    if (!API_KEY) {
-        return (
-            <div className="flex justify-center items-center min-h-screen bg-gray-900 text-red-500 text-lg p-4 text-center">
-                <p>
-                    Please fill in your TMDB API Key in the `page.js` file to fetch movie and TV show data.
-                </p>
-            </div>
-        );
-    }
-
-    try {
-        const [mediaDetails, similarMediaList] = await Promise.all([
-            getMediaDetails(mediaType, id),
-            getStaticListMedia('8267252') // TMDB static list ID for 'you might also like'
-        ]);
-
-        const initialSimilarMedia = similarMediaList.items;
-
-        return (
-            <WatchClient
-                initialMedia={mediaDetails}
-                initialSimilarMedia={initialSimilarMedia}
-            />
-        );
-    } catch (error) {
-        // Render a graceful error page
-        return (
-            <div className="flex justify-center items-center min-h-screen bg-gray-900 text-red-500 text-lg p-4 text-center">
-                <p>
-                    Oops! Something went wrong while fetching data. Please try again later.
-                </p>
-            </div>
-        );
-    }
 }
