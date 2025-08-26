@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import WatchClient from './WatchClient';
 
 // API Configuration
-const API_KEY = ''; // <-- FILL IN YOUR API KEY HERE
+const API_KEY = 'tmdb-api-proxy.argoyuwono119.workers.dev'; // <-- FILL IN YOUR API KEY HERE
 const BASE_URL = 'https://tmdb-api-proxy.argoyuwono119.workers.dev';
 
 // ====================================================================================
