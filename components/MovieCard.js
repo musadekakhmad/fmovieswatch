@@ -14,10 +14,10 @@ const createSlug = (title) => {
 };
 
 const MovieCard = ({ media, mediaType }) => {
-  // Add a check to ensure the media object is valid.
-  if (!media) {
-    console.error("MovieCard was rendered with an undefined 'media' prop.");
-    return null; 
+  // A more robust check to ensure the media object and its title are valid.
+  if (!media || (!media.title && !media.name)) {
+    console.error("MovieCard was rendered with an undefined 'media' or missing title/name.");
+    return null;
   }
 
   // Determine the correct media type, with a fallback to 'movie' if none is provided.
@@ -30,8 +30,8 @@ const MovieCard = ({ media, mediaType }) => {
   // Create a slug from the title for the URL.
   const slug = createSlug(title);
 
-  // Ensure the ID and title are available before rendering.
-  if (!id || !title) {
+  // Ensure the ID and slug are available before rendering.
+  if (!id || !slug) {
     return null; // Don't render if the data is incomplete.
   }
 
