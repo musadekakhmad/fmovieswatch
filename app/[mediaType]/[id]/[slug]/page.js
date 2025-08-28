@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
     return {};
   }
 
-  const title = `${details.title || details.name} | FMovies Watch`;
+  const title = `${details.title || details.name} | FMovies`;
   const description = details.overview || 'The hub for high-quality free movies and TV shows for you.';
 
   // Main fix: Prioritize backdrop images for Open Graph.
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
       title: title,
       description: description,
       url: `https://fmovieswatch.netlify.app/${mediaType}/${id}/${slug}`,
-      siteName: 'FMovies Watch',
+      siteName: 'FMovies',
       images: [
         {
           url: ogImageUrl,
@@ -215,7 +215,8 @@ export default async function MediaDetailPage({ params }) {
             <div className="flex items-center text-gray-300 space-x-4 mb-6">
               <div className="flex items-center text-yellow-500">
                 {/* Star Icon */}
-                <svg className="w-5 h-5 fill-current mr-1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 fill-current mr-1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="star-icon">
+                  <title id="star-icon">Star rating</title>
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="#facc15"/>
                 </svg>
                 <span className="font-semibold text-lg">{details.vote_average?.toFixed(1)}</span>
@@ -223,7 +224,8 @@ export default async function MediaDetailPage({ params }) {
               <span className="text-2xl font-light text-gray-700">|</span>
               <div className="flex items-center">
                 {/* Calendar Icon */}
-                <svg className="w-5 h-5 fill-current mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 fill-current mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="calendar-icon">
+                  <title id="calendar-icon">Release date</title>
                   <path d="M19 4h-2V3a1 1 0 00-2 0v1H9V3a1 1 0 00-2 0v1H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zM5 8h14v11a1 1 0 01-1 1H6a1 1 0 01-1-1V8z" fill="#38bdf8"/>
                 </svg>
                 <span className="text-base">{mediaReleaseDate}</span>
@@ -235,7 +237,8 @@ export default async function MediaDetailPage({ params }) {
               {/* Director */}
               <div className="flex items-center text-gray-300">
                 {/* Director Icon (User) */}
-                <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="director-icon">
+                  <title id="director-icon">Director</title>
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#facc15"/>
                 </svg>
                 <span className="font-semibold text-sm">Director:</span>
@@ -245,7 +248,8 @@ export default async function MediaDetailPage({ params }) {
               {/* Status */}
               <div className="flex items-center text-gray-300">
                 {/* Status Icon (Checkmark) */}
-                <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="status-icon">
+                  <title id="status-icon">Status</title>
                   <path d="M9 16.17l-4.17-4.17-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#4ade80"/>
                 </svg>
                 <span className="font-semibold text-sm">Status:</span>
@@ -256,7 +260,8 @@ export default async function MediaDetailPage({ params }) {
               {(runtime || episodeRuntime) && (
                 <div className="flex items-center text-gray-300">
                   {/* Duration Icon (Clock) */}
-                  <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="duration-icon">
+                    <title id="duration-icon">Duration</title>
                     <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm0 18a8 8 0 118-8 8 8 0 01-8 8z" fill="#f87171"/>
                     <path d="M12 6v6l4 2-1 2-5-3V6z" fill="#f87171"/>
                   </svg>
@@ -271,7 +276,8 @@ export default async function MediaDetailPage({ params }) {
               {originalLanguage && (
                 <div className="flex items-center text-gray-300">
                   {/* Language Icon (Globe) */}
-                  <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="language-icon">
+                    <title id="language-icon">Original Language</title>
                     <path d="M12 2a10 10 0 00-7.3 16.7A9.92 9.92 0 0012 22a10 10 0 007.3-3.3A9.92 9.92 0 0012 2zM6.5 12a1 1 0 11-1-1 1 1 0 011 1zM17.5 12a1 1 0 11-1-1 1 1 0 011 1zM12 7.5a1 1 0 11-1 1 1 1 0 011-1zM12 16.5a1 1 0 11-1-1 1 1 0 011 1z" fill="#38bdf8"/>
                   </svg>
                   <span className="font-semibold text-sm">Original Language:</span>
@@ -283,7 +289,8 @@ export default async function MediaDetailPage({ params }) {
               {homepage && (
                 <div className="flex items-center text-gray-300">
                   {/* Homepage Icon (Home) */}
-                  <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5 fill-current mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="homepage-icon">
+                    <title id="homepage-icon">Homepage</title>
                     <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81z" fill="#60a5fa"/>
                   </svg>
                   <span className="font-semibold text-sm">Homepage:</span>
@@ -367,7 +374,8 @@ export default async function MediaDetailPage({ params }) {
                     <p className="font-semibold text-lg text-white">{review.author}</p>
                     {review.author_details.rating && (
                       <div className="flex items-center ml-4 text-yellow-500">
-                        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="review-rating-icon">
+                          <title id="review-rating-icon">Review rating</title>
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="#facc15"/>
                         </svg>
                         <span className="text-sm ml-1 text-gray-300">{review.author_details.rating}</span>
