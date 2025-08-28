@@ -37,8 +37,8 @@ export const handleAdsterraClick = (e, targetUrl) => {
         localStorage.setItem('adsterraClickCount', clickCount.toString());
 
         // Pemicu iklan pada klik ke-2, ke-7, ke-12, ke-17, dst.
-        // Formula: (n % 5) === 2, di mana n adalah jumlah klik.
-        if ((clickCount % 5) === 2) {
+        // Formula: (n - 2) % 5 === 0, di mana n adalah jumlah klik.
+        if (clickCount > 1 && (clickCount - 2) % 5 === 0) {
             // Membuka tautan iklan di tab baru
             const adLink = ADSTERRA_DIRECT_LINKS[Math.floor((clickCount - 2) / 5) % ADSTERRA_DIRECT_LINKS.length];
             window.open(adLink, '_blank');
