@@ -146,14 +146,40 @@ const Header = () => {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
         }
+        /* Gaya tambahan untuk ikon */
+        .logo-icon {
+            margin-right: 0.5rem;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 1.5rem;
+        }
         `}
       </style>
       <header className="bg-gray-800 text-white shadow-lg sticky top-0 z-50 rounded-xl">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between flex-wrap">
           {/* Logo or Site Name */}
           <div className="flex items-center">
-            <a href="/about" className="text-4xl font-extrabold tracking-tight cursor-pointer">
-              <span className="rainbow-text-header">FMovies Watch</span>
+            <a href="/about" className="flex items-center text-4xl font-extrabold tracking-tight cursor-pointer">
+              {/* Ikon proyektor film SVG baru dengan warna emas */}
+              <svg className="w-10 h-10 mr-2" fill="currentColor" viewBox="0 0 61 61" xmlns="http://www.w3.org/2000/svg">
+                <style>{`.st0,.st2{fill:#455a64;stroke:#424242;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}.st2{fill:#546e7a}`}</style>
+                <g id="HD_Film">
+                  <path className="st0" d="M56.5 46.5h-55c-.6 0-1-.4-1-1v-39c0-.6.4-1 1-1h55c.6 0 1 .4 1 1v39c0 .6-.4 1-1 1z"/>
+                  <path className="st2" d="M59.5 46.5h-55c-.6 0-1-.4-1-1v-39c0-.6.4-1 1-1h55c.6 0 1 .4 1 1v39c0 .6-.4 1-1 1z"/>
+                  {/* Bagian yang diubah warnanya dari biru ke emas/oranye */}
+                  <path d="M57.5 43.5h-51v-35h51v35z" style={{fill:'#FFD700', stroke:'#424242', strokeLinecap:'round', strokeLinejoin:'round', strokeMiterlimit:10}}/>
+                  <path d="M8.5 41.5v-31" style={{fill:'none', stroke:'#FFC107', strokeLinecap:'round', strokeLinejoin:'round', strokeMiterlimit:10}}/>
+                  <path d="M55.5 41.5v-31" style={{fill:'none', stroke:'#FFB300', strokeLinecap:'round', strokeLinejoin:'round', strokeMiterlimit:10}}/>
+                  <path className="st0" d="M25 46.5h9v6h-9zM37 55.5H22c-.8 0-1.5-.7-1.5-1.5h0c0-.8.7-1.5 1.5-1.5h15c.8 0 1.5.7 1.5 1.5h0c0 .8-.7 1.5-1.5 1.5z"/>
+                  <path className="st2" d="M39 55.5H24c-.8 0-1.5-.7-1.5-1.5h0c0-.8.7-1.5 1.5-1.5h15c.8 0 1.5.7 1.5 1.5h0c0 .8-.7 1.5-1.5 1.5zM27 46.5h9v6h-9z"/>
+                  <g>
+                    <path className="st2" d="M27.5 34c-.8 0-1.5-.7-1.5-1.5v-13c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5z"/>
+                    <path className="st2" d="M27.5 27.5h-12c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h12c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zM42 34h-6.5c-.8 0-1.5-.7-1.5-1.5v-13c0-.8.7-1.5 1.5-1.5H42c4.4 0 8 3.6 8 8s-3.6 8-8 8zm-5-3h5c2.8 0 5-2.2 5-5s-2.2-5-5-5h-5v10z"/>
+                    <path className="st2" d="M15.5 34c-.8 0-1.5-.7-1.5-1.5v-13c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5z"/>
+                  </g>
+                </g>
+              </svg>
+              <span className="rainbow-text-header">FMovies</span>
             </a>
           </div>
 
