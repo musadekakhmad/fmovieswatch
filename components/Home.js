@@ -296,7 +296,7 @@ export default function Home() {
               className="w-full h-full object-cover object-center"
               onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/1920x1080/0d1117/2d3138?text=Erica-Stream';
+                  e.target.src = 'https://placehold.co/1920x1080/0d1117/2d3138?text=fmovieswatch';
               }}
           />
       </div>
