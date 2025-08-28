@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: 'FMovies | Watch Movies and TV Series Streaming Free',
     description: 'Your ultimate destination for high-quality Watch movies and TV shows streaming.',
-    url: 'https://fmovies.netlify.app/',
+    url: 'https://fmovieswatch.netlify.app/',
     siteName: 'FMovies',
     images: [
       {
