@@ -13,20 +13,22 @@ import AdsterraLayoutWrapper from '../components/AdsterraLayoutWrapper';
 
 export const metadata = {
   // Changing title and description to English
-  title: 'FMovies Watch | Free Movies and TV Series Streaming',
-  description: 'Your ultimate destination for high-quality free movies and TV shows streaming.',
+  title: 'FMovies | Watch Movies and TV Series Streaming Free',
+  description: 'Your ultimate destination for high-quality Watch movies and TV shows streaming.',
+  // Menambahkan meta keywords untuk SEO
+  keywords: ['FMovies', 'watch free movies', 'watch free tv series', 'streaming', 'film gratis'],
   // Open Graph meta tags for Facebook
   openGraph: {
-    title: 'FMovies Watch | Free Movies and TV Series Streaming',
-    description: 'Your ultimate destination for high-quality free movies and TV shows streaming.',
-    url: 'https://fmovieswatch.netlify.app/',
-    siteName: 'FMovies Watch',
+    title: 'FMovies | Watch Movies and TV Series Streaming Free',
+    description: 'Your ultimate destination for high-quality Watch movies and TV shows streaming.',
+    url: 'https://FMovies123.netlify.app/',
+    siteName: 'FMovies',
     images: [
       {
         url: 'https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg',
         width: 1200,
         height: 630,
-        alt: 'FMovies Watch',
+        alt: 'FMovies',
       },
     ],
     // Changing locale to English
@@ -40,9 +42,9 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@WatchStream123', // Your Twitter user
     creator: '@WatchStream123',
-    // Changing title and description to English
-    title: 'FMovies Watch | Free Movies and TV Series Streaming',
-    description: 'Your ultimate destination for high-quality free movies and TV sho streaming.',
+    // Mengoreksi kesalahan ketik pada deskripsi
+    title: 'FMovies | Watch Movies and TV Series Streaming Free',
+    description: 'Your ultimate destination for high-quality Watch movies and TV shows streaming.',
     images: ['https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg'], // Replace with the appropriate image URL
   },
 }; 
