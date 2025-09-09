@@ -9,7 +9,6 @@ import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AdsterraLayoutWrapper from '../components/AdsterraLayoutWrapper'; 
-// Removed import 'video.js/dist/video-js.css'; from here
 
 export const metadata = {
   // Changing title and description to English
@@ -52,12 +51,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* Adding suppressHydrationWarning to address hydration errors. */}
-      {/* This often happens when third-party scripts or browser extensions modify the body tag. */}
       <body suppressHydrationWarning={true}>
         <AdsterraLayoutWrapper>
-          {/* Main container with a maximum width */}
-          {/* Moving Header, content, and Footer into this container */}
           <div className="mx-auto max-w-7xl">
             <Header />
             {children}
