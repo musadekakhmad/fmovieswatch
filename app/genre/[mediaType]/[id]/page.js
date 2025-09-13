@@ -3,8 +3,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import MovieCard from '@/components/MovieCard';
 import { notFound } from 'next/navigation';
 
-const API_KEY = 'ISI DENGAN API KEY ANDA'; // <-- REPLACE WITH YOUR API KEY
-const BASE_URL = 'https://tmdb-api-proxy.argoyuwono119.workers.dev';
+const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+const BASE_URL = process.env.NEXT_PUBLIC_TMDB_API_URL;
 
 // ===================================
 // Main Component
