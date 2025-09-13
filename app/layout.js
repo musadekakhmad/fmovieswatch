@@ -1,14 +1,14 @@
 // ---------------------------------------------------------------- //
 // File Name: app/layout.js
 // Function: This is the main layout for the entire website,
-//         used to configure elements that appear
-//         on all pages, such as the header, footer, and content width.
+//           used to configure elements that appear
+//           on all pages, such as the header, footer, and content width.
 // ---------------------------------------------------------------- //
 
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import AdsterraLayoutWrapper from '../components/AdsterraLayoutWrapper'; 
+import AdsterraLayoutWrapper from '../components/AdsterraLayoutWrapper';
 
 export const metadata = {
   // Changing title and description to English
@@ -46,7 +46,7 @@ export const metadata = {
     description: 'Your ultimate destination for high-quality Watch Movies and TV shows streaming.',
     images: ['https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg'], // Replace with the appropriate image URL
   },
-}; 
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -56,6 +56,10 @@ export default function RootLayout({ children }) {
           <div className="mx-auto max-w-7xl">
             <Header />
             {children}
+            {/* Native Banner diletakkan di sini, sebelum Footer */}
+            <div id="container-94f17a22860e4b4d6b99ce8c1e3dbbc3"></div>
+            {/* Anda juga perlu menambahkan skrip Native Banner di sini */}
+            <script async="async" data-cfasync="false" src="//discreetisabella.com/94f17a22860e4b4d6b99ce8c1e3dbbc3/invoke.js"></script>
             <Footer />
           </div>
         </AdsterraLayoutWrapper>
