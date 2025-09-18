@@ -24,7 +24,7 @@ export const metadata = {
     siteName: 'FMovies',
     images: [
       {
-        url: 'https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg',
+        url: 'https://live.staticflickr.com/65535/54796154293_fa66ff7825_b.jpg',
         width: 1200,
         height: 630,
         alt: 'FMovies',
@@ -44,7 +44,7 @@ export const metadata = {
     // Mengoreksi kesalahan ketik pada deskripsi
     title: 'FMovies | Watch Movies and TV Series Streaming Free',
     description: 'Your ultimate destination for high-quality Watch Movies and TV shows streaming.',
-    images: ['https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg'], // Replace with the appropriate image URL
+    images: ['https://live.staticflickr.com/65535/54796154293_fa66ff7825_b.jpg'], // Replace with the appropriate image URL
   },
 };
 
