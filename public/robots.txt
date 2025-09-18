@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fmovieswatch.netlify.app/sitemap.xml
+Sitemap: https://fmovieswatch.netlify.app/
