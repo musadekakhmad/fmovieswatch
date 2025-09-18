@@ -178,7 +178,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative mt-8 w-full h-48 md:h-64 lg:h-96 overflow-hidden rounded-xl shadow-2xl" suppressHydrationWarning={true}>
           <img
-              src="https://live.staticflickr.com/65535/54745510629_fe622569fd_b.jpg"
+              src="https://live.staticflickr.com/65535/54796154293_fa66ff7825_b.jpg"
               alt="FMovies Banner"
               className="w-full h-full object-cover object-center"
               onError={(e) => {
