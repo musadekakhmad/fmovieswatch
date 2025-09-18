@@ -1,13 +1,4 @@
 // app/sitemap.js
-import {
-  getMovieGenres,
-  getMoviesByCategory,
-  getTvSeriesByCategory,
-  getTvSeriesGenres,
-  getMoviesByGenre,
-  getTvSeriesByGenre
-} from '../lib/api';
-
 const BASE_URL = 'https://fmovieswatch.netlify.app';
 
 // Fungsi utilitas untuk membuat slug
@@ -27,6 +18,54 @@ const createSlug = (name, year) => {
   
   return `${baseSlug}-${year}`;
 };
+
+// Fungsi fetch sederhana untuk sitemap
+async function fetchFromAPI(endpoint) {
+  const TMDB_API_KEY = process.env.TMDB_API_KEY || process.env.NEXT_PUBLIC_TMDB_API_KEY;
+  const TMDB_API_URL = process.env.TMDB_API_URL || 'https://api.themoviedb.org/3';
+  
+  try {
+    const response = await fetch(`${TMDB_API_URL}${endpoint}?api_key=${TMDB_API_KEY}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching from API:', error);
+    return null;
+  }
+}
+
+// Fungsi bantuan untuk mendapatkan data
+async function getMovieGenres() {
+  const data = await fetchFromAPI('/genre/movie/list');
+  return data?.genres || [];
+}
+
+async function getTvSeriesGenres() {
+  const data = await fetchFromAPI('/genre/tv/list');
+  return data?.genres || [];
+}
+
+async function getMoviesByCategory(category, page = 1) {
+  const data = await fetchFromAPI(`/movie/${category}?page=${page}`);
+  return data?.results || [];
+}
+
+async function getTvSeriesByCategory(category, page = 1) {
+  const data = await fetchFromAPI(`/tv/${category}?page=${page}`);
+  return data?.results || [];
+}
+
+async function getMoviesByGenre(genreId, page = 1) {
+  const data = await fetchFromAPI(`/discover/movie?with_genres=${genreId}&page=${page}`);
+  return data?.results || [];
+}
+
+async function getTvSeriesByGenre(genreId, page = 1) {
+  const data = await fetchFromAPI(`/discover/tv?with_genres=${genreId}&page=${page}`);
+  return data?.results || [];
+}
 
 export default async function sitemap() {
   const movieCategories = ['popular', 'now_playing', 'upcoming', 'top_rated'];
