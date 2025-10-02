@@ -23,7 +23,7 @@ export default function AdsterraLayoutWrapper({ children }) {
 
       // Memuat skrip iklan Native Banner
       const nativeBannerScript = document.createElement('script');
-      nativeBannerScript.src = "//discreetisabella.com/94f17a22860e4b4d6b99ce8c1e3dbbc3/invoke.js";
+      nativeBannerScript.src = "//eminencehillsidenutrition.com/94f17a22860e4b4d6b99ce8c1e3dbbc3/invoke.js";
       nativeBannerScript.async = true;
       nativeBannerScript.setAttribute('data-cfasync', 'false');
       document.body.appendChild(nativeBannerScript);
@@ -31,14 +31,14 @@ export default function AdsterraLayoutWrapper({ children }) {
       // Memuat skrip iklan Popunder
       const popunderScript = document.createElement('script');
       popunderScript.type = 'text/javascript';
-      popunderScript.src = "//discreetisabella.com/64/f0/44/64f0448453921f0e8c8d5d370c1de538.js";
+      popunderScript.src = "//eminencehillsidenutrition.com/64/f0/44/64f0448453921f0e8c8d5d370c1de538.js";
       popunderScript.async = true;
       document.body.appendChild(popunderScript);
 
       // Memuat skrip iklan Social Bar
       const socialBarScript = document.createElement('script');
       socialBarScript.type = 'text/javascript';
-      socialBarScript.src = "//discreetisabella.com/01/e0/54/01e05438871c5014fcce1a184099ffda.js";
+      socialBarScript.src = "//eminencehillsidenutrition.com/01/e0/54/01e05438871c5014fcce1a184099ffda.js";
       socialBarScript.async = true;
       document.body.appendChild(socialBarScript);
   
