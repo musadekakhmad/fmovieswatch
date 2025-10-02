@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
             {/* Native Banner diletakkan di sini, sebelum Footer */}
             <div id="container-94f17a22860e4b4d6b99ce8c1e3dbbc3"></div>
             {/* Anda juga perlu menambahkan skrip Native Banner di sini */}
-            <script async="async" data-cfasync="false" src="//discreetisabella.com/94f17a22860e4b4d6b99ce8c1e3dbbc3/invoke.js"></script>
+            <script async="async" data-cfasync="false" src="//eminencehillsidenutrition.com/94f17a22860e4b4d6b99ce8c1e3dbbc3/invoke.js"></script>
             <Footer />
           </div>
         </AdsterraLayoutWrapper>
