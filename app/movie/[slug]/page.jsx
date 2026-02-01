@@ -39,8 +39,8 @@ export async function generateMetadata({ params }) {
   if (CATEGORIES.includes(slug)) {
     const title = slug.replace(/_/g, ' ').toUpperCase();
     return {
-      title: `StreamVault - ${title} Movies`,
-      description: `Explore the ${title} movies collection on StreamVault.`,
+      title: `FMovies - ${title} Movies`,
+      description: `Explore the ${title} movies collection on FMovies.`,
     };
   }
 
@@ -51,8 +51,8 @@ export async function generateMetadata({ params }) {
     const genres = await getMovieGenres();
     const genreName = genres.find(g => g.id == genreId)?.name || 'Unknown';
     return {
-      title: `StreamVault - ${genreName} Movies`,
-      description: `Discover ${genreName} movies on StreamVault.`,
+      title: `FMovies - ${genreName} Movies`,
+      description: `Discover ${genreName} movies on FMovies.`,
     };
   }
 
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }) {
   // Jika data tidak ditemukan, kembalikan metadata dasar
   if (!movieData) {
     return {
-      title: 'StreamVault',
+      title: 'FMovies',
       description: 'Find your favorite movies to stream.',
     };
   }
@@ -99,13 +99,13 @@ export async function generateMetadata({ params }) {
   const socialImageAlt = `${movieData.title} poster`;
 
   return {
-    title: `StreamVault - ${movieData.title}`,
+    title: `FMovies - ${movieData.title}`,
     description: movieData.overview || `Detailed information for movie ${movieData.title}`,
     openGraph: {
       title: movieData.title,
       description: movieData.overview || `Detailed information for movie ${movieData.title}`,
-      url: `https://gostreamvault.netlify.app/movie/${slug}`,
-      siteName: 'StreamVault',
+      url: `https://fmovieswatch.netlify.app/movie/${slug}`,
+      siteName: 'FMovies',
       images: [
         {
           url: socialImage,

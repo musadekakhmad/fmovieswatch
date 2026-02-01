@@ -40,12 +40,12 @@ export async function generateMetadata({ params }) {
 
   if (genreSlugMap.has(processedSlug)) {
     const genre = genreSlugMap.get(processedSlug);
-    return { title: `StreamVault - ${genre.name} TV Series` };
+    return { title: `FMovies - ${genre.name} TV Series` };
   }
 
   if (CATEGORIES.includes(slug)) {
     const title = slug.replace(/_/g, ' ').toUpperCase();
-    return { title: `StreamVault - ${title} TV Series` };
+    return { title: `FMovies - ${title} TV Series` };
   }
 
   // Logika untuk mengambil data TV show untuk metadata detail
@@ -84,13 +84,13 @@ export async function generateMetadata({ params }) {
   const socialImageAlt = `${tvShowData.name} poster`;
 
   return {
-    title: `StreamVault - ${tvShowData.name}`,
+    title: `FMovies - ${tvShowData.name}`,
     description: tvShowData.overview,
     openGraph: {
       title: tvShowData.name,
       description: tvShowData.overview,
-      url: `https://gostreamvault.netlify.app/tv-show/${slug}`,
-      siteName: 'StreamVault',
+      url: `https://fmovieswatch.netlify.app/tv-show/${slug}`,
+      siteName: 'FMovies',
       images: [{ url: socialImage, width: 1200, height: 630, alt: socialImageAlt }],
       locale: 'en_US',
       type: 'website',

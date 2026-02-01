@@ -14,17 +14,17 @@ export async function generateMetadata({ params }) {
   const genre = genres.find(g => g.name.toLowerCase().replace(/\s/g, '-') === genreName);
   const title = genre?.name || 'Unknown';
 
-  const pageUrl = `https://gostreamvault.netlify.app/movie/genre/${genreName}`;
-  const imageUrl = 'https://live.staticflickr.com/65535/55064698963_d7de65d6d6_b.jpg';
+  const pageUrl = `https://fmovieswatch.netlify.app/movie/genre/${genreName}`;
+  const imageUrl = 'https://live.staticflickr.com/65535/54796154293_fa66ff7825_b.jpg';
 
   return {
-    title: `StreamVault - ${title} Movies`,
-    description: `Find and watch the best ${title} movies for free on StreamVault.`,
+    title: `FMovies - ${title} Movies`,
+    description: `Find and watch the best ${title} movies for free on FMovies.`,
     openGraph: {
-      title: `StreamVault - ${title} Movies`,
-      description: `Find and watch the best ${title} movies for free on StreamVault.`,
+      title: `FMovies - ${title} Movies`,
+      description: `Find and watch the best ${title} movies for free on FMovies.`,
       url: pageUrl,
-      siteName: 'StreamVault',
+      siteName: 'FMovies',
       images: [
         {
           url: imageUrl,
@@ -40,8 +40,8 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       site: '@WatchStream123',
       creator: '@WatchStream123',
-      title: `StreamVault - ${title} Movies`,
-      description: `Find and watch the best ${title} movies for free on StreamVault.`,
+      title: `FMovies - ${title} Movies`,
+      description: `Find and watch the best ${title} movies for free on FMovies.`,
       images: [imageUrl],
     },
     other: {
