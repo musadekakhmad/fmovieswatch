@@ -30,6 +30,8 @@ export {
     getAdsterraAIStats 
 } from '../adsterra-ai';
 
+export { getAIOptimizer } from '../adsterra-ai';
+
 // ======================
 // COMPATIBILITY EXPORTS
 // ======================

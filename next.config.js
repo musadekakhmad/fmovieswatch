@@ -1,4 +1,3 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -15,7 +14,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'via.placehold.co',
+        hostname: 'via.placeholder.com', // ✅ Perbaikan dari .co ke .com
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.themoviedb.org',
         pathname: '/**',
       }
     ],
